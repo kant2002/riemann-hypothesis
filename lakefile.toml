@@ -3,7 +3,19 @@ platformIndependent = true
 
 name = "tree"
 srcDir = "src"
-defaultTargets = ["CompanionTheory", "Development", "Formalism", "GroundTheory", "GroundTheoryFields", "Lemmata", "PositivityTheory", "ReciprocityTheory", "Main"]
+defaultTargets = [
+    "CompanionTheory", 
+    "Development", 
+    "Formalism", 
+    "GroundTheory", 
+    "GroundTheoryFields", 
+    "Lemmata", 
+    "LemmataDependent", 
+    "PositivityTheory", 
+    "ReciprocityTheory", 
+    "Supplements", 
+    "Main"
+]
 moreLeanArgs = ["--tstack=400000"]
 
 [leanOptions]
@@ -41,7 +53,60 @@ leanOptions = {synthInstance.maxHeartbeats = 400000}
 
 [[lean_lib]]
 name = "Lemmata"
-globs = ["Lemmata.+"]
+globs = [
+    "Lemmata.B110.+", "Lemmata.B1962s.+", "Lemmata.Cancellation.+",
+    "Lemmata.ComplementLifts.+", "Lemmata.CurryModusPonens.+", "Lemmata.Denominators.+", "Lemmata.DiscreteValuationQuotients.+",
+    "Lemmata.FiberEquations.+", 
+    "Lemmata.FirstBlockLemmaB.+",
+    "Lemmata.FirstBlockLemmaE.+", "Lemmata.FirstBlockLemmaF.+", "Lemmata.FirstBlockLemmaG.+", "Lemmata.FirstBlockLemmaH.+",
+    "Lemmata.FirstBlockLemmaI.+", "Lemmata.FirstBlockLemmaJ.+", "Lemmata.FirstBlockLemmaK.+",
+    "Lemmata.FunctionAtZero.+", "Lemmata.GeneralBFact.+", "Lemmata.GeneralBFactAltForm.+", "Lemmata.GeneralBFactBis.+",
+    "Lemmata.GeneralBFactBisAlt.+", "Lemmata.GeneralBFactBisForm.+", "Lemmata.GeneralBFactForm.+",
+    "Lemmata.GeneralBFactFurther.+", "Lemmata.GeneralBFactLast.+", "Lemmata.GeneralBFactLeft.+", "Lemmata.GeneralBFactLeftBis.+",
+    "Lemmata.GeneralBFactLeftBisAlt.+", "Lemmata.GeneralBFactLeftExtra.+", "Lemmata.GeneralBFactLeftForm.+",
+    "Lemmata.GeneralBFactLeftLast.+", "Lemmata.GeneralBFactLeftMore.+", "Lemmata.GeneralBFactLeftRest.+", "Lemmata.GeneralBFactLeftSide.+",
+    "Lemmata.GeneralBFactLeftTail.+", "Lemmata.GeneralBFactLeftTer.+", "Lemmata.GeneralBFactLeftTerForm.+",
+    "Lemmata.GeneralBFactLeftVariant.+", "Lemmata.GeneralBFactRest.+",
+    "Lemmata.GeneralBFactRight.+", "Lemmata.GeneralBFactRightAlt.+", "Lemmata.GeneralBFactRightAltForm.+", "Lemmata.GeneralBFactRightBis.+", 
+    "Lemmata.GeneralBFactRightBisAlt.+", "Lemmata.GeneralBFactRightBisForm.+", "Lemmata.GeneralBFactRightExtra.+", 
+    "Lemmata.GeneralBFactRightForm.+", "Lemmata.GeneralBFactRightFurther.+", 
+    "Lemmata.GeneralBFactRightMore.+", "Lemmata.GeneralBFactRightRest.+", "Lemmata.GeneralBFactRightSide.+", 
+    "Lemmata.GeneralBFactRightTer.+", "Lemmata.GeneralBFactRightTerForm.+", "Lemmata.GeneralBFactRightVariant.+", 
+    "Lemmata.GeneralBFactRightVersion.+", "Lemmata.GeneralBFactSecond.+", "Lemmata.GeneralBFactSecondAlt.+", "Lemmata.GeneralBFactSecondAltForm.+",
+    "Lemmata.GeneralBFactSecondBisAlt.+", "Lemmata.GeneralBFactSecondBisForm.+", "Lemmata.GeneralBFactSecondExtra.+",
+    "Lemmata.GeneralBFactSecondForm.+", "Lemmata.GeneralBFactSecondFurther.+", "Lemmata.GeneralBFactSecondLast.+",
+    "Lemmata.GeneralBFactSecondMore.+", "Lemmata.GeneralBFactSecondRest.+", "Lemmata.GeneralBFactSecondSide.+",
+    "Lemmata.GeneralBFactSecondTail.+", "Lemmata.GeneralBFactSecondTer.+", "Lemmata.GeneralBFactSecondTerForm.+",
+    "Lemmata.GeneralBFactSide.+", "Lemmata.GeneralBFactTail.+", "Lemmata.GeneralBFactTer.+",
+    "Lemmata.GeneralBFactTerForm.+", "Lemmata.GeneralBFactThirdAlt.+",
+    "Lemmata.GeneralBFactThirdAltForm.+", "Lemmata.GeneralBFactThirdBis.+", "Lemmata.GeneralBFactThirdBisAlt.+",
+    "Lemmata.GeneralBFactThirdBisForm.+", "Lemmata.GeneralBFactThirdForm.+", "Lemmata.GeneralBFactThirdFurther.+",
+    "Lemmata.GeneralBFactThirdMore.+", "Lemmata.GeneralBFactThirdRest.+",
+    "Lemmata.GeneralBFactThirdSide.+", "Lemmata.GeneralBFactThirdTail.+", "Lemmata.GeneralBFactThirdTer.+",
+    "Lemmata.GeneralBFactThirdTerForm.+", "Lemmata.GeneralBFactThirdVariant.+", "Lemmata.GeneralBFactThirdVersion.+",
+    "Lemmata.GeneralBFactUpper.+", "Lemmata.GeneralBFactUpperAltForm.+", "Lemmata.GeneralBFactUpperBis.+",
+    "Lemmata.GeneralBFactUpperForm.+", "Lemmata.GeneralBFactUpperTerForm.+", "Lemmata.GeneralBFactUpperVariant.+",
+    "Lemmata.GeneralBFactUpperVersion.+", "Lemmata.GeneralBFactVariant.+", "Lemmata.GeneralBFactVersion.+", 
+    "Lemmata.IntegerMulIntegral.+", "Lemmata.IterateZero.+", "Lemmata.MiscLemmasA.+", "Lemmata.MiscLemmasB.+",
+    "Lemmata.MiscLemmasC.+", "Lemmata.MiscLemmasD.+", "Lemmata.MiscLemmasE.+", "Lemmata.MiscLemmasH.+",
+    "Lemmata.MiscLemmasI.+", "Lemmata.MiscLemmasJ.+", "Lemmata.MiscLemmasL.+",
+    "Lemmata.MiscLemmasM.+", "Lemmata.MiscLemmasN.+", "Lemmata.MiscLemmasO.+", "Lemmata.MiscLemmasP.+",
+    "Lemmata.MiscLemmasQ.+", "Lemmata.MiscLemmasR.+", "Lemmata.MovedPointExistence.+", "Lemmata.MultivariateIntegrals.+",
+    "Lemmata.NatMulIsIntegral.+", "Lemmata.NearbyExistence.+", "Lemmata.PartialDerivativeDegree.+",
+    "Lemmata.PeriodicFunctions.+", "Lemmata.PosDefOfRealQuadratic.+",
+    "Lemmata.ProductIdentities.+", "Lemmata.RankOneOrbitForms.+",
+    "Lemmata.ScalarExtension.+", "Lemmata.SmulListSum.+"
+]
+
+[[lean_lib]]
+name = "LemmataDependent"
+globs = [
+    "Lemmata.B1959r.+", "Lemmata.CharacterDirections.+", "Lemmata.ClearingDenominators.+", "Lemmata.DetMonotoneStarMulSelf.+", 
+    "Lemmata.DetNormLeProdRows.+", "Lemmata.DualWeylPullback.+", "Lemmata.GeneralBFactLeftAlt.+", "Lemmata.GeneralBFactLeftAltForm.+",
+    "Lemmata.GeneralBFactLeftBisForm.+", "Lemmata.GeneralBFactLeftFurther.+", "Lemmata.GeneralBFactLeftVersion.+",
+    "Lemmata.GeneralBFactSecondBis.+", "Lemmata.GeneralBFactSecondVersion.+", "Lemmata.HermitianSesquilinear.+", 
+    "Lemmata.IdempotentTraceVanishing.+", "Lemmata.MiscLemmasF.+", "Lemmata.PaddedFamilies.+", "Lemmata.PlaneOverMembership.+", "Lemmata.SimultaneousEigenvectors.+", "Lemmata.TwistedIdempotents.+"]
+
 
 [[lean_lib]]
 name = "PositivityTheory"
