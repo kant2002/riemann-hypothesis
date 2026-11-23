@@ -281,7 +281,9 @@ def registered(cache, entries):
     (outputs/<scope>/<hash>.json naming it). Others are (re)written by `lake cache add`."""
     wanted = dict(entries)
     have = set()
-    for directory, _, files in os.walk(cache / "outputs"):
+    output_cache = cache / "outputs"
+    print(f"Looking for existing cache entries in the {output_cache} for {len(entries)} entries")
+    for directory, _, files in os.walk(output_cache):
         for name in files:
             input_hash = name[:-5]
             if name.endswith(".json") and input_hash in wanted and input_hash not in have:
